@@ -1,0 +1,10 @@
+<table name="maps_contents">
+	<column name="maps_srl" type="number" size="14" default="0" notnull="notnull" index="idx_maps_srl" primary_key="primary_key" />
+	<column name="member_srl" type="number" size="14" index="idx_member_srl" />
+	<column name="maps_content" type="bigtext" notnull="notnull" />
+	<column name="title" type="varchar" size="250" />
+	<column name="content" type="bigtext" notnull="notnull" />
+	<column name="ipaddress" type="varchar" size="128" notnull="notnull" />
+	<column name="regdate" type="date" index="idx_regdate" />
+	<column name="update" type="date" index="idx_update" />
+</table>
