@@ -3,7 +3,7 @@
 /**
  * @class  mapsAdminController
  * @author MinSoo Kim (misol.kr@gmail.com)
- * @brief controller class of the maps module admin
+ * @brief admin controller class of the maps module
  * @todo 상세 작업을 추가해서 마무리(?) 해야한다.
  */
 class mapsAdminController extends maps
