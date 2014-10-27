@@ -11,13 +11,26 @@ class mapsModel extends maps
 	/**
 	 * @brief Return maps module setting
 	 */
-	function getMapsConfig()
+	public function getMapsConfig()
 	{
 		$oModuleModel = getModel('module');
-		$maps_default_config = $oModuleModel->getModuleConfig('maps');
+		$maps_config = $oModuleModel->getModuleConfig('maps');
 
-		return $maps_default_config;
+		return $maps_config;
 	}
+
+	public function getApiXmlObject($uri, $headers = null) {
+		$xml = '';
+		$xml = FileHandler::getRemoteResource($uri, null, 3, 'GET', 'application/xml', $headers);
+
+		$xml = preg_replace("/<\?xml([.^>]*)\?>/i", "", $xml);
+
+		$oXmlParser = new XmlParser();
+		$xml_doc = $oXmlParser->parse($xml);
+
+		return $xml_doc;
+	}
+
 }
 
 /* End of file maps.model.php */
