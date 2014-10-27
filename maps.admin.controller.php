@@ -4,7 +4,7 @@
  * @class  mapsAdminController
  * @author MinSoo Kim (misol.kr@gmail.com)
  * @brief controller class of the maps module admin
- * @todo »ó¼¼ ÀÛ¾÷À» Ãß°¡ÇØ¼­ ¸¶¹«¸®(?) ÇØ¾ßÇÑ´Ù.
+ * @todo ìƒì„¸ ì‘ì—…ì„ ì¶”ê°€í•´ì„œ ë§ˆë¬´ë¦¬(?) í•´ì•¼í•œë‹¤.
  */
 class mapsAdminController extends maps
 {
@@ -16,10 +16,10 @@ class mapsAdminController extends maps
 	}
 
 	/**
-	 * @brief Áöµµ ¸ğµâ ¼³Á¤(API Å°), ruleset "procMapsAdminCofig"
+	 * @brief ì§€ë„ ëª¨ë“ˆ ì„¤ì •(API í‚¤), ruleset "procMapsAdminCofig"
 	 * @author MinSoo Kim (misol.kr@gmail.com)
-	 * @param string $maps_module_map_api_key API Å°¸¦ ÀÔ·Â ¹Ş´Â´Ù. Å° ±æÀÌ¿¡ µû¶ó ³×ÀÌ¹ö, ´ÙÀ½, ºù ÀÎÁö ±¸ºĞÇÑ´Ù. ruleset(procMapsAdminCofig)¿¡ ÀÇÇØ ¾ËÆÄºª+¼ıÀÚ Á¶ÇÕ¸¸ ÀÔ·Â °¡´É
-	 * @param string $maps_module_daum_local_api_key ´ÙÀ½ Áö¿ª API Å°¸¦ ÀÔ·Â ¹Ş´Â´Ù. ruleset(procMapsAdminCofig)¿¡ ÀÇÇØ ¾ËÆÄºª+¼ıÀÚ Á¶ÇÕ¸¸ ÀÔ·Â °¡´É
+	 * @param string $maps_module_map_api_key API í‚¤ë¥¼ ì…ë ¥ ë°›ëŠ”ë‹¤. í‚¤ ê¸¸ì´ì— ë”°ë¼ ë„¤ì´ë²„, ë‹¤ìŒ, ë¹™ ì¸ì§€ êµ¬ë¶„í•œë‹¤. ruleset(procMapsAdminCofig)ì— ì˜í•´ ì•ŒíŒŒë²³+ìˆ«ì ì¡°í•©ë§Œ ì…ë ¥ ê°€ëŠ¥
+	 * @param string $maps_module_daum_local_api_key ë‹¤ìŒ ì§€ì—­ API í‚¤ë¥¼ ì…ë ¥ ë°›ëŠ”ë‹¤. ruleset(procMapsAdminCofig)ì— ì˜í•´ ì•ŒíŒŒë²³+ìˆ«ì ì¡°í•©ë§Œ ì…ë ¥ ê°€ëŠ¥
 	 */
 	function procMapsAdminCofig()
 	{
@@ -30,7 +30,7 @@ class mapsAdminController extends maps
 		$config->map_api_key = trim(Context::get('maps_module_map_api_key'));
 		$config->maps_api_type = '';
 
-		// API Á¾·ù Á¤ÇÏ±â ´ÙÀ½/³×ÀÌ¹ö/±¸±Û
+		// API ì¢…ë¥˜ ì •í•˜ê¸° ë‹¤ìŒ/ë„¤ì´ë²„/êµ¬ê¸€
 		if(trim($config->map_api_key))
 		{
 			if(strlen($config->map_api_key) == 40)
@@ -61,10 +61,10 @@ class mapsAdminController extends maps
 	}
 
 	/**
-	 * @brief Áöµµ ÀÔ·Â ¶Ç´Â ¼öÁ¤
+	 * @brief ì§€ë„ ì…ë ¥ ë˜ëŠ” ìˆ˜ì •
 	 * @author MinSoo Kim (misol.kr@gmail.com)
-	 * @param string $maps_srl ÀÔ·Â/¼öÁ¤ÇÒ Áöµµ ¹øÈ£ÀÌ´Ù. ¼ıÀÚ°¡ ¾Æ´Ò °æ¿ì »õ·Î¿î Áöµµ·Î ÀÔ·Â, ¼ıÀÚ°¡ ÀÔ·ÂµÉ °æ¿ì ±âÁ¸ ÁöµµÀÎÁö È®ÀÎ ÈÄ ¼öÁ¤ÇÑ´Ù. ¼ıÀÚÀÎµ¥ ±âÁ¸ Áöµµ°¡ ¾Æ´Ò °æ¿ì »õ·Î¿î Áöµµ·Î ÀÔ·Â.
-	 * @param string $maps_content ÀÔ·ÂÇÒ Áöµµ Á¤º¸¸¦ Æ÷ÇÔÇÑ´Ù. PHP serialize µÈ ¹è¿­ÀÌ Base64 ÀÎÄÚµùµÈ ¹®ÀÚ¿­ÀÌ´Ù.
+	 * @param string $maps_srl ì…ë ¥/ìˆ˜ì •í•  ì§€ë„ ë²ˆí˜¸ì´ë‹¤. ìˆ«ìê°€ ì•„ë‹ ê²½ìš° ìƒˆë¡œìš´ ì§€ë„ë¡œ ì…ë ¥, ìˆ«ìê°€ ì…ë ¥ë  ê²½ìš° ê¸°ì¡´ ì§€ë„ì¸ì§€ í™•ì¸ í›„ ìˆ˜ì •í•œë‹¤. ìˆ«ìì¸ë° ê¸°ì¡´ ì§€ë„ê°€ ì•„ë‹ ê²½ìš° ìƒˆë¡œìš´ ì§€ë„ë¡œ ì…ë ¥.
+	 * @param string $maps_content ì…ë ¥í•  ì§€ë„ ì •ë³´ë¥¼ í¬í•¨í•œë‹¤. PHP serialize ëœ ë°°ì—´ì´ Base64 ì¸ì½”ë”©ëœ ë¬¸ìì—´ì´ë‹¤.
 	 */
 	function procMapsAdminInsert()
 	{
@@ -75,18 +75,18 @@ class mapsAdminController extends maps
 	}
 
 	/**
-	 * @brief Áöµµ »èÁ¦
+	 * @brief ì§€ë„ ì‚­ì œ
 	 * @author MinSoo Kim (misol.kr@gmail.com)
-	 * @param int $maps_srl »èÁ¦ÇÒ Áöµµ¹øÈ£. Áöµµ°¡ ÀÖ´ÂÁö È®ÀÎ ÈÄ »èÁ¦. Áöµµ°¡ ¾øÀ» °æ¿ì ¾Æ¹« º¯È­µµ ÀÏ¾î³ªÁö ¾Ê´Â´Ù.
+	 * @param int $maps_srl ì‚­ì œí•  ì§€ë„ë²ˆí˜¸. ì§€ë„ê°€ ìˆëŠ”ì§€ í™•ì¸ í›„ ì‚­ì œ. ì§€ë„ê°€ ì—†ì„ ê²½ìš° ì•„ë¬´ ë³€í™”ë„ ì¼ì–´ë‚˜ì§€ ì•ŠëŠ”ë‹¤.
 	 */
 	function procMapsAdminDelete()
 	{
 	}
 
 	/**
-	 * @brief Å×ÀÌºí »èÁ¦
+	 * @brief í…Œì´ë¸” ì‚­ì œ
 	 * @author MinSoo Kim (misol.kr@gmail.com)
-	 * @see ¸ğµâ¿¡ ÀúÀåµÈ ÀÚ·á¸¦ ±ò²ûÇÏ°Ô »èÁ¦ÇÏ°í ½ÍÀ»¶§. »èÁ¦ Àü Áø½ÉÀÎÁö ÀÇ»ç¸¦ ¹°¾îº½.(º¹±¸ ºÒ°¡)
+	 * @see ëª¨ë“ˆì— ì €ì¥ëœ ìë£Œë¥¼ ê¹”ë”í•˜ê²Œ ì‚­ì œí•˜ê³  ì‹¶ì„ë•Œ. ì‚­ì œ ì „ ì§„ì‹¬ì¸ì§€ ì˜ì‚¬ë¥¼ ë¬¼ì–´ë´„.(ë³µêµ¬ ë¶ˆê°€)
 	 */
 	function procMapsAdminTableDrop()
 	{
