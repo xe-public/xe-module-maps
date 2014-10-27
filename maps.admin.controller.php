@@ -68,10 +68,32 @@ class mapsAdminController extends maps
 	 */
 	function procMapsAdminInsert()
 	{
-		$maps_srl = trim(Context::get('maps_srl'));
-		$maps_content = trim(Context::get('maps_content'));
+		$action = ''; //insert or update
+		$args = new stdClass();
+		$args->maps_srl = intval(trim(Context::get('maps_srl'))); // 정수형이 아닐 경우 제거
+		$args->maps_content = trim(Context::get('maps_content'));
+		$args->title = trim(Context::get('title'));
+		$args->content = trim(Context::get('content'));
+		$args->ipaddress = $_SERVER['REMOTE_ADDR'];
 
-		
+		// 정수형이고, 값이 존재할 경우 실제 존재하는 지도인지 확인(업데이트 날짜가 존재하는지 확인)
+		if($args->maps_srl > 0)
+		{
+			$output = executeQuery('maps.getMapUpdate', $args);
+		}
+
+		// 존재하는 지도일 경우, 업데이트 진행
+		if($output->update)
+		{
+			$output = executeQuery('maps.updateMapsContent', $args);
+		}
+		else // 존재하지 않는 지도일 경우 지도 생성. 시퀀스 번호 생성, 지도 입력
+		{
+			$args->maps_srl = getNextSequence();//다음 시쿼스 번호
+			$output = executeQuery('maps.insertMapsContent', $args);
+		}
+
+		return;
 	}
 
 	/**
@@ -81,6 +103,22 @@ class mapsAdminController extends maps
 	 */
 	function procMapsAdminDelete()
 	{
+		$args = new stdClass();
+		$args->maps_srl = intval(trim(Context::get('maps_srl'))); // 정수형이 아닐 경우 제거
+
+		// 정수형이고, 값이 존재할 경우 실제 존재하는 지도인지 확인(업데이트 날짜가 존재하는지 확인)
+		if($maps_srl > 0)
+		{
+			$output = executeQuery('maps.getMapUpdate', $args);
+			//todo 존재하는 지도일 경우, 삭제 진행
+		}
+
+		// 존재하는 지도일 경우, 삭제 진행
+		if($output->update)
+		{
+			$output = executeQuery('maps.deleteMapContent', $args);
+		}
+
 	}
 
 	/**

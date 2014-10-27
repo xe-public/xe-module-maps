@@ -10,5 +10,6 @@
 		<column name="content" var="content" />
 		<column name="ipaddress" var="ipaddress" />
 		<column name="regdate" var="curdate()" />
+		<column name="update" var="curdate()" />
 	</columns>
 </query>
