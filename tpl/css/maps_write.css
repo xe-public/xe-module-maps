@@ -1,0 +1,17 @@
+@charset "UTF-8";
+#controlArea{box-sizing:border-box;width:310px;height:400px;overflow:hidden;float:left;}
+#map_canvas {box-sizing:border-box;overflow:hidden;width:310px;height:400px;float:left;}
+#text_writing{box-sizing:border-box;overflow:hidden;width:310px;height:400px; }
+#searchArea>ul{margin:15px 0px 0px 5px;}
+#searchArea>ul>li,li.result_lists{list-style:none}
+#result_list_layer{overflow-y:scroll;height:339px;}
+#insertAction{text-decoration:none!important;color:#FFFFFF!important;box-sizing:border-box;display:block;height:287px;font-size:29px;text-align:center;background-color:#8e8e93;border:5px solid #6a6a6e;}
+#insertAction>span{vertical-align:-124px;}
+#insertAction:hover{background-color:#474749;}
+.gmnoprint div[title^="Pan"],.gmnoprint div[title~="이동"] {opacity: 0 !important;}
+input[type=text] {
+	width: 150px!important;
+}
+#view_list{margin:0;}
+li.result_lists>a{box-sizing:border-box;display:block;text-decoration:none;width:100%;font-size:15px;height:31px;padding:5px 10px;border-bottom:1px dotted #8e8e93;overflow:hidden;direction:rtl;text-overflow:ellipsis;white-space : nowrap; }
+#helpDiv{display:none;position:absolute;top:0;margin:0px auto;padding:0;width:800px;height:455px;z-index:100000;}

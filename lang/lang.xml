@@ -20,6 +20,10 @@
 		<value xml:lang="ko">제목 없는 지도</value>
 		<value xml:lang="en">Untitled map</value>
 	</item>
+	<item name="maps_module_no_description">
+		<value xml:lang="ko">지도 설명이 없습니다.</value>
+		<value xml:lang="en">No description of the map.</value>
+	</item>
 	<item name="maps_search">
 		<value xml:lang="ko">주소 검색</value>
 		<value xml:lang="en">Search address.</value>
@@ -48,9 +52,13 @@
 		<value xml:lang="ko"><![CDATA[지도가 입력되어 있습니다.<br />지도를 보시려면 여기를 클릭하세요.]]></value>
 		<value xml:lang="en"><![CDATA[A map is here.<br />Click here to view the map.]]></value>
 	</item>
-	<item name="maps_module_cmd_insert_map">
-		<value xml:lang="ko">지도 넣기</value>
-		<value xml:lang="en">Insert map</value>
+	<item name="maps_saved">
+		<value xml:lang="ko">지도가 저장되었습니다.</value>
+		<value xml:lang="en">The map is saved.</value>
+	</item>
+	<item name="maps_module_cmd_save_map">
+		<value xml:lang="ko">지도 저장</value>
+		<value xml:lang="en">Save map</value>
 	</item>
 	<item name="maps_module_msg_no_result">
 		<value xml:lang="ko">검색 결과가 없습니다.</value>

@@ -69,12 +69,21 @@ class mapsAdminController extends maps
 	public function procMapsAdminInsert()
 	{
 		$action = ''; //insert or update
+		$logged_info = Context::get('logged_info');
 		$args = new stdClass();
 		$args->maps_srl = intval(trim(Context::get('maps_srl'))); // 정수형이 아닐 경우 제거
-		$args->maps_content = trim(Context::get('maps_content'));
-		$args->title = trim(Context::get('title'));
-		$args->content = trim(Context::get('content'));
+		$args->member_srl = $logged_info->member_srl;
+		$args->title = htmlspecialchars(trim(Context::get('map_title')));
+		$args->content = htmlspecialchars(trim(Context::get('map_description')));
 		$args->ipaddress = $_SERVER['REMOTE_ADDR'];
+
+		$maps_contents = new stdClass();
+		$maps_contents->map_center = trim(Context::get('map_center'));
+		$maps_contents->map_markers = trim(Context::get('map_markers'));
+		$maps_contents->map_zoom = intval(Context::get('map_zoom'));
+		$maps_contents = base64_encode(serialize($maps_contents));
+
+		$args->maps_content = $maps_contents;
 
 		// 정수형이고, 값이 존재할 경우 실제 존재하는 지도인지 확인(업데이트 날짜가 존재하는지 확인)
 		if($args->maps_srl > 0)
@@ -83,7 +92,7 @@ class mapsAdminController extends maps
 		}
 
 		// 존재하는 지도일 경우, 업데이트 진행
-		if($output->update)
+		if($output->data->update)
 		{
 			$output = executeQuery('maps.updateMapsContent', $args);
 		}
@@ -93,6 +102,7 @@ class mapsAdminController extends maps
 			$output = executeQuery('maps.insertMapsContent', $args);
 		}
 
+		$this->add("maps_srl", $args->maps_srl);
 		return;
 	}
 

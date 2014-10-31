@@ -27,12 +27,14 @@ class mapsAdminModel extends maps
 		$query = Context::get('query');
 		if(!$query) return;
 
-
 		// API 종류 정하기 다음/네이버/구글
 		$oMapsModel = getModel('maps');
 		$maps_config = $oMapsModel->getMapsConfig();
 
-		$uri = sprintf('http://maps.googleapis.com/maps/api/geocode/xml?address=%s&sensor=false&language=%s',urlencode($address),urlencode($this->langtype));
+		// 언어 값 설정
+		$langtype = str_replace($this->xe_langtype, $this->google_langtype, strtolower(Context::getLangType()));
+
+		$uri = sprintf('http://maps.googleapis.com/maps/api/geocode/xml?address=%s&sensor=false&language=%s',urlencode($query),urlencode($langtype));
 		$xml_doc = $oMapsModel->getApiXmlObject($uri);
 
 		$item = $xml_doc->geocoderesponse->result;
@@ -53,7 +55,7 @@ class mapsAdminModel extends maps
 		}
 
 		if($maps_config->maps_api_type == 'naver') {
-			$uri = sprintf('http://map.naver.com/api/geocode.php?key=%s&encoding=utf-8&coord=latlng&query=%s',$this->soo_map_api,urlencode($address));
+			$uri = sprintf('http://map.naver.com/api/geocode.php?key=%s&encoding=utf-8&coord=latlng&query=%s',$maps_config->map_api_key,urlencode($query));
 			$xml_doc = $oMapsModel->getApiXmlObject($uri);
 
 			$item = $xml_doc->geocode->item;
@@ -77,7 +79,7 @@ class mapsAdminModel extends maps
 		}
 
 		if($maps_config->daum_local_api_key) {
-			$uri = sprintf('http://apis.daum.net/local/geo/addr2coord?apikey=%s&q=%s&output=xml',$this->soo_daum_local_api_key,urlencode($address));
+			$uri = sprintf('http://apis.daum.net/local/geo/addr2coord?apikey=%s&q=%s&output=xml',$maps_config->daum_local_api_key,urlencode($query));
 			$xml_doc = $oMapsModel->getApiXmlObject($uri);
 
 			$item = $xml_doc->channel->item;

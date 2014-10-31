@@ -15,6 +15,16 @@ class mapsModel extends maps
 	{
 		$oModuleModel = getModel('module');
 		$maps_config = $oModuleModel->getModuleConfig('maps');
+		if(!is_object($maps_config))
+		{
+			$maps_config = new stdClass();
+		}
+
+		//default settings
+		if(!$maps_config->maps_api_type)
+		{
+			$maps_config->maps_api_type = 'google';
+		}
 
 		return $maps_config;
 	}

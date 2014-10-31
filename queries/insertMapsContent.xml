@@ -9,7 +9,7 @@
 		<column name="title" var="title" />
 		<column name="content" var="content" />
 		<column name="ipaddress" var="ipaddress" />
-		<column name="regdate" var="curdate()" />
-		<column name="update" var="curdate()" />
+		<column name="regdate" default="curdate()" />
+		<column name="update" default="curdate()" />
 	</columns>
 </query>
