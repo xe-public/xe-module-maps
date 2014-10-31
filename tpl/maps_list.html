@@ -1,0 +1,18 @@
+<include target="./common/header.html" />
+<include target="./common/header_tabs.html" />
+<load target="./common/css/css.css" />
+<ol class="maps_list">
+	<li loop="$maps_list => $no, $map_item">
+		<ul>
+			<li class="maps_no">{$no}</li>
+			<li class="maps_title"><!--@if(trim($map_item->title))-->{htmlspecialchars($map_item->title)}<!--@else--><em>{$lang->maps_module_untitled}</em><!--@end-->"</li>
+		</ul>
+	</li>
+</ol>
+<ul class="maps_pagination">
+	<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
+	<!--@while($page_no = $page_navigation->getNextPage())-->
+	<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
+	<!--@end-->
+	<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
+</ul>

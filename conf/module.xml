@@ -4,6 +4,7 @@
 	<permissions />
 	<actions>
 		<action name="dispMapsAdminList" type="view" admin_index="true" menu_name="maps_module" menu_index="true" />
+		<action name="dispMapsAdminWrite" type="view" />
 		<action name="dispMapsAdminConfig" type="view" />
 		<action name="getMapsAdminLocation" type="model" method="GET|POST" />
 		<action name="procMapsAdminCofig" type="controller" ruleset="mapsModuleConfig" method="GET|POST" />

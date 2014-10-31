@@ -103,6 +103,18 @@ class mapsAdminModel extends maps
 
 	}
 
+	/**
+	 * @brief 주소 검색 반환. 각 사이트의 API 이용.
+	 * @author MinSoo Kim (misol.kr@gmail.com)
+	 * @param string $query 검색 쿼리.
+	 * @todo 자체 DB 기능을 추가할 경우 자체 DB 중 위치도 포함해서 검색.
+	 */
+	public function getMapsAdminList($args)
+	{
+		$output = executeQuery('maps.getMapsAdminList', $args);
+		return $output;
+	}
+
 }
 /* End of file maps.admin.model.php */
 /* Location: ./modules/maps/maps.admin.model.php */

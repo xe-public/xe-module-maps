@@ -4,6 +4,22 @@
 		<value xml:lang="ko"><![CDATA[지도]]></value>
 		<value xml:lang="en"><![CDATA[Maps]]></value>
 	</item>
+	<item name="maps_module_maps_list">
+		<value xml:lang="ko"><![CDATA[지도 목록]]></value>
+		<value xml:lang="en"><![CDATA[Maps List]]></value>
+	</item>
+	<item name="maps_module_maps_write">
+		<value xml:lang="ko"><![CDATA[지도 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Maps]]></value>
+	</item>
+	<item name="maps_module_maps_setting">
+		<value xml:lang="ko"><![CDATA[지도 모듈 설정]]></value>
+		<value xml:lang="en"><![CDATA[Maps Module Settings]]></value>
+	</item>
+	<item name="maps_module_untitled">
+		<value xml:lang="ko">제목 없는 지도</value>
+		<value xml:lang="en">Untitled map</value>
+	</item>
 	<item name="maps_search">
 		<value xml:lang="ko">주소 검색</value>
 		<value xml:lang="en">Search address.</value>
