@@ -26,34 +26,26 @@ class mapsAdminController extends maps
 		$oModuleController = getController('module');
 		$config = new stdClass();
 
-		$config->daum_local_api_key = trim(Context::get('maps_module_daum_local_api_key'));
-		$config->map_api_key = trim(Context::get('maps_module_map_api_key'));
+		$config->daum_local_api_key = trim(Context::get('daum_local_api_key'));
+		$config->map_api_key = trim(Context::get('map_api_key'));
 		$config->maps_api_type = '';
 
 		// API 종류 정하기 다음/네이버/구글
-		if(trim($config->map_api_key))
+		if(strlen($config->map_api_key) == 40)
 		{
-			if(strlen($config->map_api_key) == 40)
-			{
-				$config->maps_api_type = 'daum'; /* Daum maps */
-			}
-			elseif(strlen($config->map_api_key) == 32)
-			{
-				$config->maps_api_type = 'naver'; /* NAVER maps */
-			}
-			elseif(strlen($config->map_api_key) == 64)
-			{
-				$config->maps_api_type = 'microsoft'; /* bing maps */
-			}
-			else
-			{
-				$config->maps_api_type = 'google'; /* Google maps */
-			}
+			$config->maps_api_type = 'daum'; /* Daum maps */
+		}
+		elseif(strlen($config->map_api_key) == 32)
+		{
+			$config->maps_api_type = 'naver'; /* NAVER maps */
+		}
+		elseif(strlen($config->map_api_key) == 64)
+		{
+			$config->maps_api_type = 'microsoft'; /* bing maps */
 		}
 		else
 		{
-			$this->setMessage('maps_module_fail_to_set');
-			return;
+			$config->maps_api_type = 'google'; /* Google maps */
 		}
 
 		$oModuleController->insertModuleConfig('maps', $config);

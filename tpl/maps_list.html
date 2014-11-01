@@ -1,6 +1,7 @@
 <include target="./common/header.html" />
 <include target="./common/header_tabs.html" />
 <!--// load target="./common/css/css.css" / -->
+<h1>{$lang->maps_module_maps_list}</h1>
 <table class="maps_list x_table x_table-striped x_table-hover">
 	<thead>
 		<tr class="maps_list_header">
@@ -18,11 +19,12 @@
 	</tbody>
 </table>
 
-
-<ul class="maps_pagination">
-	<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
-	<!--@while($page_no = $page_navigation->getNextPage())-->
-	<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
-	<!--@end-->
-	<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
-</ul>
+<div class="x_pagination">
+	<ul class="maps_pagination">
+		<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
+		<!--@while($page_no = $page_navigation->getNextPage())-->
+		<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
+		<!--@end-->
+		<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
+	</ul>
+</div>

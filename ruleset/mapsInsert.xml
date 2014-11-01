@@ -8,7 +8,7 @@
 	<fields>
 		<field name="maps_srl" required="true" rule="maps_srl" />
 		<field name="map_center" required="true" rule="one_point" />
-		<field name="map_markers" required="true" rule="positions" />
+		<field name="map_markers" required="false" rule="positions" />
 		<field name="map_zoom" required="true" rule="number" />
 	</fields>
 </ruleset>

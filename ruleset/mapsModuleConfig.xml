@@ -4,6 +4,6 @@
 	</customrules>
 	<fields>
 		<field name="maps_module_daum_local_api_key" required="false" rule="alpha_number" />
-		<field name="maps_module_map_api_key" required="true" rule="alpha_number" />
+		<field name="maps_module_map_api_key" required="false" rule="alpha_number" />
 	</fields>
 </ruleset>
