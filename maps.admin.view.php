@@ -59,7 +59,28 @@ class mapsAdminView extends maps
 		$oMapsModel = getModel('maps');
 		$maps_config = $oMapsModel->getMapsConfig();
 
-		Context::get('maps_srl');
+		$args = new stdClass();
+		$args->maps_srl = intval(Context::get('maps_srl'));
+
+		// 정수형이고, 값이 존재할 경우 실제 존재하는 지도인지 확인(업데이트 날짜가 존재하는지 확인)
+		if($args->maps_srl > 0)
+		{
+			$output = executeQuery('maps.getMapUpdate', $args);
+		}
+
+		// 존재하는 지도일 경우, 지도 데이터 가져옴
+		if($output->data->update)
+		{
+			$output = executeQuery('maps.getMapbySrl', $args);
+
+			$maps_content = unserialize(base64_decode($output->data->maps_content));
+
+			Context::set('map_title',$output->data->title);
+			Context::set('map_content',$output->data->content);
+			Context::set('map_center',$maps_content->map_center);
+			Context::set('map_markers',$maps_content->map_markers);
+			Context::set('map_zoom',$maps_content->map_zoom);
+		}
 
 		// 다음과 네이버는 국내 지도만 사용가능. 구글은 세계지도.
 		if($maps_config->maps_api_type == 'daum')
@@ -122,6 +143,9 @@ class mapsAdminView extends maps
 
 	public function dispMapsAdminConfig()
 	{
+		$oMapsModel = getModel('maps');
+		$maps_config = $oMapsModel->getMapsConfig();
+
 		// Specify a template
 		$this->setTemplatePath($this->module_path.'tpl');
 		$this->setTemplateFile('maps_config');

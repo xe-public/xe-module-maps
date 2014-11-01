@@ -1,14 +1,24 @@
 <include target="./common/header.html" />
 <include target="./common/header_tabs.html" />
 <!--// load target="./common/css/css.css" / -->
-<ol class="maps_list">
-	<li loop="$maps_list => $no, $map_item">
-		<ul>
-			<li class="maps_no">{$no}</li>
-			<li class="maps_title"><!--@if(trim($map_item->title))-->{htmlspecialchars($map_item->title)}<!--@else--><em>{$lang->maps_module_untitled}</em><!--@end-->"</li>
-		</ul>
-	</li>
-</ol>
+<table class="maps_list x_table x_table-striped x_table-hover">
+	<thead>
+		<tr class="maps_list_header">
+			<th scope="col" class="nowr">{$lang->maps_module_maps_srl}</th>
+			<th scope="col" class="title">{$lang->maps_module_maps_title}</th>
+			<th scope="col" class="nowr">{$lang->cmd_setup}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="maps_list_items" loop="$maps_list => $no, $map_item">
+			<td scope="row" class="maps_no nowr">{$map_item->maps_srl}</td>
+			<td class="maps_title title"><a href="{getUrl('act','dispMapsAdminWrite','maps_srl',$map_item->maps_srl)}"><!--@if(trim($map_item->title))-->{htmlspecialchars($map_item->title)}<!--@else--><em>{$lang->maps_module_untitled}</em><!--@end--></a></td>
+			<td class="nowr"><a href="{getUrl('act','dispMapsAdminWrite','maps_srl',$map_item->maps_srl)}">{$lang->cmd_edit}</a> | {$lang->cmd_delete}</td>
+		</tr>
+	</tbody>
+</table>
+
+
 <ul class="maps_pagination">
 	<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
 	<!--@while($page_no = $page_navigation->getNextPage())-->

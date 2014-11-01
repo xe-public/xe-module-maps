@@ -10,11 +10,23 @@
 	</item>
 	<item name="maps_module_maps_write">
 		<value xml:lang="ko"><![CDATA[지도 생성]]></value>
-		<value xml:lang="en"><![CDATA[Create Maps]]></value>
+		<value xml:lang="en"><![CDATA[Create Map]]></value>
+	</item>
+	<item name="maps_module_maps_edit">
+		<value xml:lang="ko"><![CDATA[지도 편집]]></value>
+		<value xml:lang="en"><![CDATA[Edit Map]]></value>
 	</item>
 	<item name="maps_module_maps_setting">
 		<value xml:lang="ko"><![CDATA[지도 모듈 설정]]></value>
 		<value xml:lang="en"><![CDATA[Maps Module Settings]]></value>
+	</item>
+	<item name="maps_module_maps_srl">
+		<value xml:lang="ko"><![CDATA[일련번호]]></value>
+		<value xml:lang="en"><![CDATA[Serial no.]]></value>
+	</item>
+	<item name="maps_module_maps_title">
+		<value xml:lang="ko"><![CDATA[제목]]></value>
+		<value xml:lang="en"><![CDATA[Title]]></value>
 	</item>
 	<item name="maps_module_untitled">
 		<value xml:lang="ko">제목 없는 지도</value>

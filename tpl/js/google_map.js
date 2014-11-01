@@ -94,7 +94,22 @@ function getMaps() {
 	}
 	map = new google.maps.Map(document.getElementById("map_canvas"), mapOption);
 
-	center = new google.maps.LatLng(defaultlat, defaultlng);
+	if(saved_maps_srl > 0)
+	{
+		var center_split = saved_map_center.split(',');
+		center = new google.maps.LatLng(center_split[0], center_split[1]);
+
+		var markers_split = saved_map_markers.split(';');
+		map_marker_positions = saved_map_markers.trim();
+		marker = addMarker(0);
+
+		map_zoom = parseInt(saved_map_zoom,10);
+	}
+	else
+	{
+		center = new google.maps.LatLng(defaultlat, defaultlng);
+
+	}
 	map.setCenter(center);
 	var center = map.getCenter();
 

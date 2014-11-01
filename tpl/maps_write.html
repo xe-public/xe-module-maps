@@ -8,9 +8,15 @@
 <!--@else-->
 	<load target="./js/google_map.js" />
 <!--@end-->
-{@Context::addHtmlHeader('<script>var no_result="'.$lang->msg_no_result.'", maps_saved="'.$lang->maps_saved.'";</script>');}
+{@Context::addHtmlHeader('<script>var no_result="'.$lang->msg_no_result.
+	'", maps_saved="'.$lang->maps_saved.
+	'", saved_maps_srl="'.$maps_srl.
+	'", saved_map_center="'.$map_center.
+	'", saved_map_markers="'.$map_markers.
+	'", saved_map_zoom="'.$map_zoom.
+	'";</script>');}
 <div id="bodyDiv">
-	<h1 id="maps_title">{$lang->maps_module_maps_write}</h1>
+	<h1 id="maps_title"><!--@if(!$maps_srl)-->{$lang->maps_module_maps_write}<!--@else-->{$lang->maps_module_maps_edit}<!--@end--></h1>
 	<div id="controlArea">
 		<div id="searchArea">
 			<ul>
@@ -29,8 +35,8 @@
 	<div id="map_canvas"></div>
 	<input type="hidden" id="maps_srl" value="" />
 	<div id="text_writing">
-		<input type="text" name="map_title" placeholder="{$lang->maps_module_untitled}" id="map_title" value="" style="font-size:14px;width:95%!important" />
-		<textarea id="map_description" name="map_description" placeholder="{$lang->maps_module_no_description}" style="font-size:14px;width:95%!important;height:57px;"></textarea>
+		<input type="text" name="map_title" placeholder="{$lang->maps_module_untitled}" id="map_title" value="{htmlspecialchars($map_title)}" style="font-size:14px;width:95%!important" />
+		<textarea id="map_description" name="map_description" placeholder="{$lang->maps_module_no_description}" style="font-size:14px;width:95%!important;height:57px;">{htmlspecialchars($map_content)}</textarea>
 		<div>
 			<a id="insertAction" href="#" onclick="saveMap();return false;"><span>{$lang->maps_module_cmd_save_map}</span></a>
 		</div>
