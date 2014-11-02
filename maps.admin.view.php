@@ -25,24 +25,30 @@ class mapsAdminView extends maps
 		$oMapsAdminModel = getAdminModel('maps');
 		$maps_list = $oMapsAdminModel->getMapsAdminList($args);
 
-		//Pre. page
-		if($maps_list->page_navigation->first_page <= $maps_list->page_navigation->cur_page - 1)
+		if($maps_list->error)
 		{
-			$maps_list->page_navigation->prev_page = $maps_list->page_navigation->cur_page - 1;
+			Context::set('total_count', 0);
+			Context::set('maps_error', $maps_list->error);
+			Context::set('maps_message', $maps_list->message);
 		}
 		else
 		{
-			$maps_list->page_navigation->prev_page = $maps_list->page_navigation->cur_page;
+			//Pre. page
+			if($maps_list->page_navigation->first_page <= $maps_list->page_navigation->cur_page - 1)
+			{
+				$maps_list->page_navigation->prev_page = $maps_list->page_navigation->cur_page - 1;
+			}
+			else
+			{
+				$maps_list->page_navigation->prev_page = $maps_list->page_navigation->cur_page;
+			}
+
+			Context::set('total_count', $maps_list->total_count);
+			Context::set('total_page', $maps_list->total_page);
+			Context::set('page', $maps_list->page);
+			Context::set('page_navigation', $maps_list->page_navigation);
+			Context::set('maps_list', $maps_list->data);
 		}
-
-
-
-		Context::set('total_count', $maps_list->total_count);
-		Context::set('total_page', $maps_list->total_page);
-		Context::set('total_page', $maps_list->total_page);
-		Context::set('page', $maps_list->page);
-		Context::set('page_navigation', $maps_list->page_navigation);
-		Context::set('maps_list', $maps_list->data);
 
 		// Specify a template
 		$this->setTemplatePath($this->module_path.'tpl');

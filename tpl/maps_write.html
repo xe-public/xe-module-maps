@@ -16,7 +16,7 @@
 	'", saved_map_zoom="'.$map_zoom.
 	'";</script>');}
 <div id="bodyDiv">
-	<h1 id="maps_title"><!--@if(!$maps_srl)-->{$lang->maps_module_maps_write}<!--@else-->{$lang->maps_module_maps_edit}<!--@end--></h1>
+	<h1 id="maps_title"><!--@if(!$maps_srl)-->{$lang->maps_module_maps_write}<!--@else-->{$lang->maps_module_maps_edit} ({$maps_srl})<!--@end--></h1>
 	<div id="controlArea">
 		<div id="searchArea">
 			<ul>
@@ -27,7 +27,7 @@
 					</form>
 				</li>
 				<li>
-					<div class="result_list_box" id="result_list_layer">{$lang->maps_module_result}</div>
+					<div class="result_list_box" id="result_list_layer">{$lang->about_maps_module_result_use}</div>
 				</li>
 			</ul>
 		</div>

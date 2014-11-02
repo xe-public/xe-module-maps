@@ -109,18 +109,19 @@ class mapsAdminController extends maps
 		$args->maps_srl = intval(trim(Context::get('maps_srl'))); // 정수형이 아닐 경우 제거
 
 		// 정수형이고, 값이 존재할 경우 실제 존재하는 지도인지 확인(업데이트 날짜가 존재하는지 확인)
-		if($maps_srl > 0)
+		if($args->maps_srl > 0)
 		{
 			$output = executeQuery('maps.getMapUpdate', $args);
 			//todo 존재하는 지도일 경우, 삭제 진행
 		}
 
 		// 존재하는 지도일 경우, 삭제 진행
-		if($output->update)
+		if($output->data->update)
 		{
 			$output = executeQuery('maps.deleteMapContent', $args);
 		}
 
+		$this->setRedirectUrl(Context::get('error_return_url'));
 	}
 
 	/**
