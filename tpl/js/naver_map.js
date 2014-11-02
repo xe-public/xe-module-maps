@@ -71,7 +71,11 @@ function getMaps() {
 	var mapOption = {
 		zoom: map_zoom,
 		point: new nhn.api.map.LatLng(defaultlat, defaultlng),
-		enableDblClickZoom : false
+		enableWheelZoom : true,
+		enableDblClickZoom : true,
+		mapMode : 0,
+		activateTrafficMap : false,
+		activateBicycleMap : false
 	}
 	map = new nhn.api.map.Map("map_canvas", mapOption);
 
