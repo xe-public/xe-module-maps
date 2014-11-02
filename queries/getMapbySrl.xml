@@ -1,0 +1,18 @@
+<query id="getMapbySrl" action="select">
+	<tables>
+		<table name="maps_contents" />
+	</tables>
+	<columns>
+		<column name="maps_srl" />
+		<column name="member_srl" />
+		<column name="maps_content" />
+		<column name="title" />
+		<column name="content" />
+		<column name="ipaddress" />
+		<column name="regdate" />
+		<column name="update" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="maps_srl" var="maps_srl" filter="number" notnull="notnull" />
+	</conditions>
+</query>

@@ -1,0 +1,21 @@
+<query id="getMapsAdminList" action="select">
+	<tables>
+		<table name="maps_contents" />
+	</tables>
+	<columns>
+		<column name="maps_srl" />
+		<column name="title" />
+		<column name="content" />
+		<column name="regdate" />
+		<column name="update" />
+	</columns>
+	<conditions>
+		<condition operation="in" column="maps_srl" var="maps_srl" filter="number" />
+	</conditions>
+	<navigation>
+		<index var="sort_index" default="maps_srl" order="order_type" />
+		<list_count var="list_count" default="20" />
+		<page_count var="page_count" default="10" />
+		<page var="page" default="1" />
+	</navigation>
+</query>

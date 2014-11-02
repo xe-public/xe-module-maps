@@ -1,0 +1,44 @@
+<include target="./common/header.html" />
+<include target="./common/header_tabs.html" />
+<load target="./css/maps_write.css" />
+<!--@if($maps_api_type == 'naver')-->
+	<load target="./js/naver_map.js" />
+<!--@elseif($maps_api_type == 'daum')-->
+	<load target="./js/daum_map.js" />
+<!--@else-->
+	<load target="./js/google_map.js" />
+<!--@end-->
+{@Context::addHtmlHeader('<script>var no_result="'.$lang->msg_no_result.
+	'", maps_saved="'.$lang->maps_saved.
+	'", saved_maps_srl="'.$maps_srl.
+	'", saved_map_center="'.$map_center.
+	'", saved_map_markers="'.$map_markers.
+	'", saved_map_zoom="'.$map_zoom.
+	'";</script>');}
+<div id="bodyDiv">
+	<h1 id="maps_title"><!--@if(!$maps_srl)-->{$lang->maps_module_maps_write}<!--@else-->{$lang->maps_module_maps_edit} ({$maps_srl})<!--@end--></h1>
+	<div id="controlArea">
+		<div id="searchArea">
+			<ul>
+				<li>
+					<form action="./" id="searchForm" onsubmit="showLocation(this.address.value); return false">
+						<input type="text" name="address" placeholder="{$lang->maps_search}" id="address1" value="" />
+						<span class="btn"><input type="submit" value="{$lang->cmd_search}" /></span>
+					</form>
+				</li>
+				<li>
+					<div class="result_list_box" id="result_list_layer">{$lang->about_maps_module_result_use}</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="map_canvas"></div>
+	<input type="hidden" id="maps_srl" value="{$maps_srl}" />
+	<div id="text_writing">
+		<input type="text" name="map_title" placeholder="{$lang->maps_module_untitled}" id="map_title" value="{htmlspecialchars($map_title)}" style="font-size:14px;width:95%!important" />
+		<textarea id="map_description" name="map_description" placeholder="{$lang->maps_module_no_description}" style="font-size:14px;width:95%!important;height:57px;">{htmlspecialchars($map_content)}</textarea>
+		<div>
+			<a id="insertAction" href="#" onclick="saveMap();return false;"><span>{$lang->maps_module_cmd_save_map}</span></a>
+		</div>
+	</div>
+</div>

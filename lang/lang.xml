@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="maps_module_map">
+		<value xml:lang="ko"><![CDATA[지도]]></value>
+		<value xml:lang="en"><![CDATA[Maps]]></value>
+	</item>
+	<item name="maps_module_maps_list">
+		<value xml:lang="ko"><![CDATA[지도 목록]]></value>
+		<value xml:lang="en"><![CDATA[Maps List]]></value>
+	</item>
+	<item name="maps_module_maps_write">
+		<value xml:lang="ko"><![CDATA[지도 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Map]]></value>
+	</item>
+	<item name="maps_module_maps_edit">
+		<value xml:lang="ko"><![CDATA[지도 편집]]></value>
+		<value xml:lang="en"><![CDATA[Edit Map]]></value>
+	</item>
+	<item name="maps_module_maps_setting">
+		<value xml:lang="ko"><![CDATA[지도 모듈 설정]]></value>
+		<value xml:lang="en"><![CDATA[Maps Module Settings]]></value>
+	</item>
+	<item name="maps_module_maps_srl">
+		<value xml:lang="ko"><![CDATA[일련번호]]></value>
+		<value xml:lang="en"><![CDATA[Serial no.]]></value>
+	</item>
+	<item name="maps_module_maps_title">
+		<value xml:lang="ko"><![CDATA[제목]]></value>
+		<value xml:lang="en"><![CDATA[Title]]></value>
+	</item>
+	<item name="maps_module_untitled">
+		<value xml:lang="ko">제목 없는 지도</value>
+		<value xml:lang="en">Untitled map</value>
+	</item>
+	<item name="maps_module_no_description">
+		<value xml:lang="ko">지도 설명이 없습니다.</value>
+		<value xml:lang="en">No description of the map.</value>
+	</item>
+	<item name="maps_search">
+		<value xml:lang="ko">주소 검색</value>
+		<value xml:lang="en">Search address.</value>
+	</item>
+	<item name="maps_module_help">
+		<value xml:lang="ko">도움말</value>
+		<value xml:lang="en">Help</value>
+	</item>
+	<item name="maps_module_result">
+		<value xml:lang="ko">검색 결과</value>
+		<value xml:lang="en">Search result</value>
+	</item>
+	<item name="about_maps_module_result_use">
+		<value xml:lang="ko"><![CDATA[특정 위치를 표시 하고 싶을땐, 오른쪽 지도에서 해당 지점을 <strong>클릭</strong>하세요.<br />표시는 원하는 만큼 하실 수 있습니다.<br />표시를 지우고 싶을땐 표시를 클릭하세요.<br />검색창에 찾을 지역명을 검색 하시면, 이곳에 검색 결과가 나타납니다. 검색 결과가 1개 일 경우 바로 이동하며, 2개 이상일 경우는 선택해 주셔야 합니다.]]></value>
+		<value xml:lang="en"><![CDATA[You can select or de-select a place (or places) by a click.<br />You can use searching box to find out the location. The result would be shown up here.]]></value>
+	</item>
+	<item name="maps_module_view_map">
+		<value xml:lang="ko"><![CDATA[지도가 입력되어 있습니다.<br />지도를 보시려면 여기를 클릭하세요.]]></value>
+		<value xml:lang="en"><![CDATA[A map is here.<br />Click here to view the map.]]></value>
+	</item>
+	<item name="maps_saved">
+		<value xml:lang="ko">지도가 저장되었습니다.</value>
+		<value xml:lang="en">The map is saved.</value>
+	</item>
+	<item name="maps_module_cmd_save_map">
+		<value xml:lang="ko">지도 저장</value>
+		<value xml:lang="en">Save map</value>
+	</item>
+	<item name="maps_module_msg_no_result">
+		<value xml:lang="ko">검색 결과가 없습니다.</value>
+		<value xml:lang="en">No result.</value>
+	</item>
+	<item name="maps_module_daum_local_api_key">
+		<value xml:lang="ko">다음 로컬 API 키</value>
+		<value xml:lang="en">Daum Local API key</value>
+	</item>
+	<item name="about_maps_module_daum_local_api_key">
+		<value xml:lang="ko"><![CDATA[다음 로컬 APU 키를 입력하면, 주소-위치 변환에 다음 로컬 API를 활용할 수 있습니다.<br />다음 로컬 API 키는 https://dna.daum.net/myapi/dataapi/new 페이지에서 발급 받으실 수 있습니다.]]></value>
+		<value xml:lang="en">Daum Local API helps you to find location with an adress. Get Daum Local API key at https://dna.daum.net/myapi/dataapi/new .</value>
+	</item>
+	<item name="maps_module_map_api_key">
+		<value xml:lang="ko">지도 API Key</value>
+		<value xml:lang="en">Maps API key</value>
+	</item>
+	<item name="about_maps_module_map_api_key">
+		<value xml:lang="ko"><![CDATA[다음 또는 네이버 지도 API 키를 입력하실 수 있습니다.<br />https://dna.daum.net/myapi/mapsapi/new 에서 다음 지도형 API 중 JS 기반 지도 뷰를 발급 받으시거나,<br />https://developer.naver.com/openapi/register.nhn 에서 지도 API 키를 발급받은 후 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[Daum or Naver Maps API key is acceptable.<br />Get Daum maps API key from https://dna.daum.net/myapi/mapsapi/new<br />, or Naver Maps API from https://developer.naver.com/openapi/register.nhn .]]></value>
+	</item>
+	<item name="maps_module_fail_to_set">
+		<value xml:lang="ko">설정 실패</value>
+		<value xml:lang="en">Setting failed</value>
+	</item>
+</lang>

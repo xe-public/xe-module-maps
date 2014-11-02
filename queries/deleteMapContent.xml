@@ -1,0 +1,9 @@
+<query id="deleteMapContent" action="delete">
+	<tables>
+		<table name="maps_contents" />
+	</tables>
+	<columns />
+	<conditions>
+		<condition operation="equal" column="maps_srl" var="maps_srl" />
+	</conditions>
+</query>

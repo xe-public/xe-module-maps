@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+	<title xml:lang="ko">지도 모듈</title>
+	<title xml:lang="en">Maps Module</title>
+	<description xml:lang="ko">위젯으로 표시할 수 있는 지도를 생성하고, 수정하고, 삭제할 수 있습니다. 위젯으로 표시될 지도를 관리하는 모듈입니다.</description>
+	<description xml:lang="en">Manage maps, viewing through the maps widget. Maps can be created, modified, or deleted.</description>
+	<version>1.0</version>
+	<date>2014-11-02</date>
+	<category>content</category>
+	<license>The MIT License (MIT)</license>
+
+	<author email_address="misol.kr@gmail.com" link="https://github.com/xe-public/xe-module-maps">
+		<name xml:lang="ko">김민수(misol)</name>
+		<name xml:lang="en">Kim, Min Soo(misol)</name>
+	</author>
+</module>

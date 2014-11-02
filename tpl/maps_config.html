@@ -1,0 +1,25 @@
+<include target="./common/header.html" />
+<include target="./common/header_tabs.html" />
+<h1>{$lang->maps_module_maps_setting}</h1>
+<form ruleset="mapsModuleConfig" id="fo_obj" class="x_form-horizontal" action="./" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="act" value="procMapsAdminCofig" />
+	<div class="x_control-group">
+		<label class="x_control-label" for="daum_local_api_key">{$lang->maps_module_daum_local_api_key}</label>
+		<div class="x_controls">
+			<input type="text" name="daum_local_api_key" id="daum_local_api_key" value="{$daum_local_api_key}">
+			<span class="x_help-inline">{$lang->about_maps_module_daum_local_api_key}</span>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="map_api_key">{$lang->maps_module_map_api_key}</label>
+		<div class="x_controls">
+			<input type="text" name="map_api_key" id="map_api_key" value="{$map_api_key}">
+			<span class="x_help-inline">{$lang->about_maps_module_map_api_key}</span>
+		</div>
+	</div>
+	<div class="x_clearfix btnArea">
+		<div class="x_pull-right">
+			<button type="submit" class="x_btn x_btn-primary">{$lang->cmd_save}</button>
+		</div>
+	</div>
+</form>

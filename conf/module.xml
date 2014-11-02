@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<grants />
+	<permissions />
+	<actions>
+		<action name="dispMapsAdminList" type="view" admin_index="true" menu_name="maps_module" menu_index="true" />
+		<action name="dispMapsAdminWrite" type="view" />
+		<action name="dispMapsAdminConfig" type="view" />
+		<action name="getMapsAdminLocation" type="model" method="GET|POST" />
+		<action name="procMapsAdminCofig" type="controller" ruleset="mapsModuleConfig" method="GET|POST" />
+		<action name="procMapsAdminInsert" type="controller" ruleset="mapsInsert" method="GET|POST" />
+		<action name="procMapsAdminDelete" type="controller" method="GET|POST" />
+		<action name="procMapsSelect" type="controller" method="GET|POST" />
+	</actions>
+	<menus>
+		<menu name="maps_module">
+			<title xml:lang="en">Maps Module</title>
+			<title xml:lang="ko">지도 모듈</title>
+		</menu>
+	</menus>
+</module>

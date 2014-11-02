@@ -1,0 +1,36 @@
+<include target="./common/header.html" />
+<include target="./common/header_tabs.html" />
+<load target="./js/maps_list.js" />
+<h1>{$lang->maps_module_maps_list} ({$total_count})</h1>
+<!--@if(!$maps_error)-->
+<table class="maps_list x_table x_table-striped x_table-hover">
+	<thead>
+		<tr class="maps_list_header">
+			<th scope="col" class="nowr">{$lang->maps_module_maps_srl}</th>
+			<th scope="col" class="title">{$lang->maps_module_maps_title}</th>
+			<th scope="col" class="nowr">{$lang->cmd_setup}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="maps_list_items" loop="$maps_list => $no, $map_item">
+			<td scope="row" class="maps_no nowr">{$map_item->maps_srl}</td>
+			<td class="maps_title title"><a href="{getUrl('act','dispMapsAdminWrite','maps_srl',$map_item->maps_srl)}"><!--@if(trim($map_item->title))-->{htmlspecialchars($map_item->title)}<!--@else--><em>{$lang->maps_module_untitled}</em><!--@end--></a></td>
+			<td class="nowr"><a href="{getUrl('act','dispMapsAdminWrite','maps_srl',$map_item->maps_srl)}">{$lang->cmd_edit}</a> | <a onclick="deleteMap('{$map_item->maps_srl}');return false;" href="#">{$lang->cmd_delete}</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="x_pagination">
+	<ul class="maps_pagination">
+		<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
+		<!--@while($page_no = $page_navigation->getNextPage())-->
+		<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
+		<!--@end-->
+		<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
+	</ul>
+</div>
+<!--@else-->
+<h2>Maps Module error</h2>
+<p>Error Code: {$maps_error}<br />
+Error Message: {$maps_message}</p>
+<!--@end-->

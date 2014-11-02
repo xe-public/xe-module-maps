@@ -1,0 +1,15 @@
+<query id="insertMapsContent" action="insert">
+	<tables>
+		<table name="maps_contents" />
+	</tables>
+	<columns>
+		<column name="maps_srl" var="maps_srl" default="0" />
+		<column name="member_srl" var="member_srl" />
+		<column name="maps_content" var="maps_content" />
+		<column name="title" var="title" />
+		<column name="content" var="content" />
+		<column name="ipaddress" var="ipaddress" />
+		<column name="regdate" default="curdate()" />
+		<column name="update" default="curdate()" />
+	</columns>
+</query>

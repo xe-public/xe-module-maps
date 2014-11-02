@@ -1,0 +1,5 @@
+<ul class="x_nav x_nav-tabs">
+	<li class="x_active"|cond="$act == 'dispMapsAdminList'" ><a href="{getUrl('act', 'dispMapsAdminList', 'maps_srl', '', 'page', '')}">{$lang->maps_module_maps_list}</a></li>
+	<li class="x_active"|cond="$act == 'dispMapsAdminWrite' && !intval($maps_srl)" ><a href="{getUrl('act', 'dispMapsAdminWrite', 'maps_srl', '', 'page', '')}">{$lang->maps_module_maps_write}</a></li>
+	<li class="x_active"|cond="$act == 'dispMapsAdminConfig'" ><a href="{getUrl('act', 'dispMapsAdminConfig', 'maps_srl', '', 'page', '')}">{$lang->maps_module_maps_setting}</a></li>
+</ul>
