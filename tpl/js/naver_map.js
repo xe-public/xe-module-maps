@@ -3,16 +3,16 @@
  * @file	tpl/js/naver_map.js
  * @author	MinSoo Kim (misol.kr@gmail.com)
  * @brief	javascript for viewing naver map and load or save map data.
- * @see		Áöµµ ¸ğµâÀÇ ÆíÁı¿ë ÀÚ¹Ù½ºÅ©¸³Æ® Áß ±âÃÊ ½ºÅ©¸³Æ®
+ * @see		ì§€ë„ ëª¨ë“ˆì˜ í¸ì§‘ìš© ìë°”ìŠ¤í¬ë¦½íŠ¸ ì¤‘ ê¸°ì´ˆ ìŠ¤í¬ë¦½íŠ¸
  */
 
 var map_zoom = 10, map_lat = '', map_lng = '', map = '', marker = '', map_markers = new Array(), map_marker_positions = '', modi_marker_pos = '', saved_location = new Array(), result_array = new Array(), result_from = '', oIcon = '';
 
-function map_point(i) { //°Ë»öµÈ À§Ä¡ Á¤º¸¸¦ ¹è¿­¿¡¼­ ·Îµå
+function map_point(i) { //ê²€ìƒ‰ëœ ìœ„ì¹˜ ì •ë³´ë¥¼ ë°°ì—´ì—ì„œ ë¡œë“œ
 	center = result_array[i].geometry.location;
 	map.setCenter(center);
 }
-function view_list() { //°Ë»öµÈ À§Ä¡ Á¤º¸¸¦ ¹è¿­¿¡¼­ ¸®½ºÆ®·Î »Ñ¸²
+function view_list() { //ê²€ìƒ‰ëœ ìœ„ì¹˜ ì •ë³´ë¥¼ ë°°ì—´ì—ì„œ ë¦¬ìŠ¤íŠ¸ë¡œ ë¿Œë¦¼
 	var html = '';
 	if(result_array.length == 0) 
 	{
@@ -123,14 +123,14 @@ function getMaps() {
 
 }
 
-/* »õ·Î¿î À§Ä¡¿¡ ¸¶Ä¿ Ãß°¡. latlng = 0 ÀÎ °æ¿ì, map_marker_positions ¿¡ ÁöÁ¤µÈ ¸¶Ä¿ »õ·Î ÂïÀ½ */
+/* ìƒˆë¡œìš´ ìœ„ì¹˜ì— ë§ˆì»¤ ì¶”ê°€. latlng = 0 ì¸ ê²½ìš°, map_marker_positions ì— ì§€ì •ëœ ë§ˆì»¤ ìƒˆë¡œ ì°ìŒ */
 function addMarker(latlng) {
 	if(typeof(latlng) == "undefined") return;
 	var new_marker_obj;
-	/* ÀüÃ¼ ±¸Á¶´Â removeMarker() ¿Í µ¿ÀÏ*/
-	// ¸¶Ä¿ ÀÏ´Ü ´Ù Á¦°Å
+	/* ì „ì²´ êµ¬ì¡°ëŠ” removeMarker() ì™€ ë™ì¼*/
+	// ë§ˆì»¤ ì¼ë‹¨ ë‹¤ ì œê±°
 	if(typeof(map_markers) != "undefined") {
-		// ¸¶Ä¿ ÀÏ´Ü ´Ù Á¦°Å
+		// ë§ˆì»¤ ì¼ë‹¨ ë‹¤ ì œê±°
 		for(var i = 0; i < map_markers.length; i++)
 		{
 			map.removeOverlay(map_markers[i]);
@@ -143,14 +143,14 @@ function addMarker(latlng) {
 		var latitude = latlng.getLat();
 		var longitude = latlng.getLng();
 
-		// Áßº¹µÇ´Â ¸¶Ä¿´Â »ı¼ºµÇÁö ¾Êµµ·Ï.
+		// ì¤‘ë³µë˜ëŠ” ë§ˆì»¤ëŠ” ìƒì„±ë˜ì§€ ì•Šë„ë¡.
 		map_marker_positions = map_marker_positions.replace(latitude+','+longitude+';', '');
-		map_marker_positions += latitude + ',' + longitude + ';'; /* removeMarker() ¿Í ´Ù¸¥ °÷ */
+		map_marker_positions += latitude + ',' + longitude + ';'; /* removeMarker() ì™€ ë‹¤ë¥¸ ê³³ */
 	}
 
 	positions = makeLocationArray(map_marker_positions);
 
-	// ÀüÃ¼ ¸¶Ä¿ ´Ù½Ã »ı¼º
+	// ì „ì²´ ë§ˆì»¤ ë‹¤ì‹œ ìƒì„±
 	for(var i = 0; i < positions.length; i++)
 	{
 		map_markers[i] = new nhn.api.map.Marker(oIcon, {
@@ -161,13 +161,13 @@ function addMarker(latlng) {
 		new_marker_obj = map_markers[i];
 	}
 
-	// Ãß°¡µÈ ¸¶Ä¿°¡ ¹è¿­ÀÇ °¡Àå ¸¶Áö¸·¿¡ ÀÖÀ»°Å¶õ °¡Á¤ ÇÏ¿¡ ¸¶Áö¸· ¸¶Ä¿ ¸®ÅÏ
+	// ì¶”ê°€ëœ ë§ˆì»¤ê°€ ë°°ì—´ì˜ ê°€ì¥ ë§ˆì§€ë§‰ì— ìˆì„ê±°ë€ ê°€ì • í•˜ì— ë§ˆì§€ë§‰ ë§ˆì»¤ ë¦¬í„´
 	return new_marker_obj;
 
 }
 function removeMarker(latlng) {
 	if(typeof(latlng) == "undefined") return;
-	// ¸¶Ä¿ ÀÏ´Ü ´Ù Á¦°Å
+	// ë§ˆì»¤ ì¼ë‹¨ ë‹¤ ì œê±°
 	for(var i = 0; i < map_markers.length; i++)
 	{
 		map.removeOverlay(map_markers[i]);
@@ -177,11 +177,11 @@ function removeMarker(latlng) {
 	var latitude = latlng.getLat();
 	var longitude = latlng.getLng();
 
-	// ¸¶Ä¿ À§Ä¡ Á¦°Å
+	// ë§ˆì»¤ ìœ„ì¹˜ ì œê±°
 	map_marker_positions = map_marker_positions.replace(latitude+','+longitude+';', '');
 	positions = makeLocationArray(map_marker_positions);
 
-	// ÀüÃ¼ ¸¶Ä¿ ´Ù½Ã »ı¼º
+	// ì „ì²´ ë§ˆì»¤ ë‹¤ì‹œ ìƒì„±
 	for(var i = 0; i < positions.length; i++)
 	{
 		map_markers[i] = new nhn.api.map.Marker(oIcon, {
