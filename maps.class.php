@@ -92,4 +92,4 @@ class maps extends ModuleObject
 }
 
 /* End of file maps.class.php */
-/* Location: ./modules/document/document.class.php */
+/* Location: ./modules/maps/maps.class.php */
