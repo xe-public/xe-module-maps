@@ -81,8 +81,8 @@
 		<value xml:lang="en">Maps API key</value>
 	</item>
 	<item name="about_maps_module_map_api_key">
-		<value xml:lang="ko"><![CDATA[다음 또는 네이버 지도 API 키를 입력하실 수 있습니다.<br />https://dna.daum.net/myapi/mapsapi/new 에서 다음 지도형 API 중 JS 기반 지도 뷰를 발급 받으시거나,<br />https://developer.naver.com/openapi/register.nhn 에서 지도 API 키를 발급받은 후 입력해주세요.]]></value>
-		<value xml:lang="en"><![CDATA[Daum or Naver Maps API key is acceptable.<br />Get Daum maps API key from https://dna.daum.net/myapi/mapsapi/new<br />, or Naver Maps API from https://developer.naver.com/openapi/register.nhn .]]></value>
+		<value xml:lang="ko"><![CDATA[구글 지도를 이용하고 싶으실 경우 이 칸을 비워두세요.<br />다음, 네이버 또는 빙 지도 API 키를 입력하실 수 있습니다.<br />https://www.bingmapsportal.com/application 에서 빙 지도 API 키를 발급 받으실 수 있습니다.<br />https://dna.daum.net/myapi/mapsapi/new 에서 다음 지도형 API 중 JS 기반 지도 뷰를 발급 받으시거나,<br />https://developer.naver.com/openapi/register.nhn 에서 지도 API 키를 발급받은 후 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[If you want to show Google Maps, do not fill in this blank.<br />Bing(Microsoft), Daum or Naver Maps API key is acceptable.<br />Get Bing maps API key from https://www.bingmapsportal.com/application<br />, Daum maps API key from https://dna.daum.net/myapi/mapsapi/new<br />, or Naver Maps API from https://developer.naver.com/openapi/register.nhn .]]></value>
 	</item>
 	<item name="maps_module_fail_to_set">
 		<value xml:lang="ko">설정 실패</value>

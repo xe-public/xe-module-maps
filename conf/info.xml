@@ -5,7 +5,7 @@
 	<description xml:lang="ko">위젯으로 표시할 수 있는 지도를 생성하고, 수정하고, 삭제할 수 있습니다. 위젯으로 표시될 지도를 관리하는 모듈입니다.</description>
 	<description xml:lang="en">Manage maps, viewing through the maps widget. Maps can be created, modified, or deleted.</description>
 	<version>1.1</version>
-	<date>2014-11-06</date>
+	<date>2014-11-10</date>
 	<category>content</category>
 	<license>The MIT License (MIT)</license>
 
