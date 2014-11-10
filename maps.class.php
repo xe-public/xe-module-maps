@@ -42,6 +42,23 @@ class maps extends ModuleObject
 		);
 
 	/**
+	 * @param array $microsoft_langtype Microsoft 언어 타입 모음 http://msdn.microsoft.com/en-us/library/gg427600.aspx
+	 */
+	protected $microsoft_langtype = array(
+			'ko-KR',
+			'en-US',
+			'zh-TW',
+			'zh-HK',
+			'ja-JP',
+			'es-ES',
+			'fr-FR',
+			'ru-RU',
+			'en-US', // MS does not not support
+			'en-US', // MS does not not support
+			'en-US' // MS does not not support
+		);
+
+	/**
 	 * Implement if additional tasks are necessary when installing
 	 * @return Object
 	 */
@@ -75,4 +92,4 @@ class maps extends ModuleObject
 }
 
 /* End of file maps.class.php */
-/* Location: ./modules/document/document.class.php */
+/* Location: ./modules/maps/maps.class.php */

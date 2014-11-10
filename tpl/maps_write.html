@@ -5,6 +5,8 @@
 	<load target="./js/naver_map.js" />
 <!--@elseif($maps_api_type == 'daum')-->
 	<load target="./js/daum_map.js" />
+<!--@elseif($maps_api_type == 'microsoft')-->
+	<load target="./js/microsoft_map.js" />
 <!--@else-->
 	<load target="./js/google_map.js" />
 <!--@end-->
@@ -14,6 +16,7 @@
 	'", saved_map_center="'.$map_center.
 	'", saved_map_markers="'.$map_markers.
 	'", saved_map_zoom="'.$map_zoom.
+	'", map_api_key="'.$map_api_key.
 	'";</script>');}
 <div id="bodyDiv">
 	<h1 id="maps_title"><!--@if(!$maps_srl)-->{$lang->maps_module_maps_write}<!--@else-->{$lang->maps_module_maps_edit} ({$maps_srl})<!--@end--></h1>

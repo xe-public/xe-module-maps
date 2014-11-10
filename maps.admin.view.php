@@ -111,6 +111,20 @@ class mapsAdminView extends maps
 				'</script>';
 			Context::set('maps_langcode', 'ko');
 		}
+		elseif($maps_config->maps_api_type == 'microsoft')
+		{
+			// 언어 값 설정
+			$langtype = str_replace($this->xe_langtype, $this->microsoft_langtype, strtolower(Context::getLangType()));
+
+			$map_comp_header_script = '<script type="text/javascript" src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&amp;mkt=ngt,'.$langtype.'"></script>';
+			$map_comp_header_script .= '<script>'.
+				sprintf(
+					'var defaultlat="%s";'.
+					'var defaultlng="%s";'
+					,$maps_lat,$maps_lng).
+				'</script>';
+			Context::set('maps_langcode', 'ko');
+		}
 		else
 		{
 			// 언어 값 설정
@@ -139,6 +153,7 @@ class mapsAdminView extends maps
 		}
 
 		Context::set('maps_api_type', $maps_config->maps_api_type);
+		Context::set('map_api_key', $maps_config->map_api_key);
 
 		Context::addHtmlHeader($map_comp_header_script);
 
