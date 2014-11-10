@@ -2,8 +2,8 @@
 <ruleset version="1.5.0">
 	<customrules>
 		<rule name="maps_srl" type="regex" test="/^[0-9A-Z]+$/" />
-		<rule name="positions" type="regex" test="/^[0-9\,\.\;]+$/" />
-		<rule name="one_point" type="regex" test="/^([0-9\.]+)\,([0-9\.]+)$/" />
+		<rule name="positions" type="regex" test="/^[0-9\-\,\.\;]+$/" />
+		<rule name="one_point" type="regex" test="/^(\-?[0-9\.]+)\,(\-?[0-9\.]+)$/" />
 	</customrules>
 	<fields>
 		<field name="maps_srl" required="true" rule="maps_srl" />
