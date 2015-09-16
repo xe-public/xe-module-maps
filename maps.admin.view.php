@@ -102,7 +102,7 @@ class mapsAdminView extends maps
 		}
 		elseif($maps_config->maps_api_type == 'naver')
 		{
-			$map_comp_header_script = '<script src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&amp;key='.$maps_config->map_api_key.'"></script>';
+			$map_comp_header_script = '<script src="https://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&amp;key='.$maps_config->map_api_key.'"></script>';
 			$map_comp_header_script .= '<script>'.
 				sprintf(
 					'var defaultlat="%s";'.
