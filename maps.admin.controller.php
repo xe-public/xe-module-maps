@@ -28,18 +28,23 @@ class mapsAdminController extends maps
 
 		$config->daum_local_api_key = trim(Context::get('daum_local_api_key'));
 		$config->map_api_key = trim(Context::get('map_api_key'));
+		$config->map_api_type = trim(Context::get('map_api_type')); // 입력된 API key type 값. 다음 지도일 때만 확인한다. maps_api_type 을 결정에 도움을 주는 값.
 		$config->maps_api_type = '';
 
-		// API 종류 정하기 다음/네이버/구글
-		if(strlen($config->map_api_key) == 40)
+		// API 종류 정하기 다음/네이버/구글/빙
+		if(strlen($config->map_api_key) === 40 || $config->map_api_key === $config->daum_local_api_key ||(trim($config->map_api_type) === 'daum' && strlen($config->map_api_key) == 32))
 		{
+			if((!$config->daum_local_api_key && strlen($config->map_api_key) === 40) || (trim($config->map_api_type) === 'daum' && !$config->daum_local_api_key && strlen($config->map_api_key) == 32))
+			{
+				$config->daum_local_api_key = $config->map_api_key;
+			}
 			$config->maps_api_type = 'daum'; /* Daum maps */
 		}
-		elseif(strlen($config->map_api_key) == 32)
+		elseif(strlen($config->map_api_key) === 32)
 		{
 			$config->maps_api_type = 'naver'; /* NAVER maps */
 		}
-		elseif(strlen($config->map_api_key) == 64)
+		elseif(strlen($config->map_api_key) === 64)
 		{
 			$config->maps_api_type = 'microsoft'; /* bing maps */
 		}

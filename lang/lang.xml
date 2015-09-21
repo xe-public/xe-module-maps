@@ -84,6 +84,22 @@
 		<value xml:lang="ko"><![CDATA[구글 지도를 이용하고 싶으실 경우 이 칸을 비워두세요.<br />다음, 네이버 또는 빙 지도 API 키를 입력하실 수 있습니다.<br />https://www.bingmapsportal.com/application 에서 빙 지도 API 키를 발급 받으실 수 있습니다.<br />https://dna.daum.net/myapi/mapsapi/new 에서 다음 지도형 API 중 JS 기반 지도 뷰를 발급 받으시거나,<br />https://developer.naver.com/openapi/register.nhn 에서 지도 API 키를 발급받은 후 입력해주세요.]]></value>
 		<value xml:lang="en"><![CDATA[If you want to show Google Maps, do not fill in this blank.<br />Bing(Microsoft), Daum or Naver Maps API key is acceptable.<br />Get Bing maps API key from https://www.bingmapsportal.com/application<br />, Daum maps API key from https://dna.daum.net/myapi/mapsapi/new<br />, or Naver Maps API from https://developer.naver.com/openapi/register.nhn .]]></value>
 	</item>
+	<item name="maps_module_map_api_key_type">
+		<value xml:lang="ko">지도 API Key 발급자(다음, 네이버 API 사용시 권장)</value>
+		<value xml:lang="en">Maps API Key Distributors (Recommand, For Korean maps)</value>
+	</item>
+	<item name="maps_module_key_type_auto">
+		<value xml:lang="ko">자동 선택(다음 지도 아님)</value>
+		<value xml:lang="en">Auto selection (Not Daum Maps)</value>
+	</item>
+	<item name="maps_module_key_type_daum">
+		<value xml:lang="ko">다음</value>
+		<value xml:lang="en">Daum</value>
+	</item>
+	<item name="maps_module_key_type_descri">
+		<value xml:lang="ko">다음 지도 API Key 가 32자 인 경우 반드시 선택해주시기 바랍니다.</value>
+		<value xml:lang="en">Select if you try to use Daum maps.</value>
+	</item>
 	<item name="maps_module_fail_to_set">
 		<value xml:lang="ko">설정 실패</value>
 		<value xml:lang="en">Setting failed</value>

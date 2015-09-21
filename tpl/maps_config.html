@@ -17,6 +17,16 @@
 			<span class="x_help-inline">{$lang->about_maps_module_map_api_key}</span>
 		</div>
 	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="map_api_type">{$lang->maps_module_map_api_key_type}</label>
+		<div class="x_controls">
+			<select name="map_api_type" id="map_api_type">
+				<option value="" selected="selected"|cond="$map_api_type!=='daum'">{$lang->maps_module_key_type_auto}</option>
+				<option value="daum" selected="selected"|cond="$map_api_type==='daum'">{$lang->maps_module_key_type_daum}</option>
+			</select>
+			<span class="x_help-inline">{$lang->maps_module_key_type_descri}</span>
+		</div>
+	</div>
 	<div class="x_clearfix btnArea">
 		<div class="x_pull-right">
 			<button type="submit" class="x_btn x_btn-primary">{$lang->cmd_save}</button>

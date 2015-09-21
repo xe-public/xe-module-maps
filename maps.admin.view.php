@@ -169,6 +169,7 @@ class mapsAdminView extends maps
 
 		Context::set('map_api_key', $maps_config->map_api_key);
 		Context::set('daum_local_api_key', $maps_config->daum_local_api_key);
+		Context::set('map_api_type', $maps_config->map_api_type);
 
 		// Specify a template
 		$this->setTemplatePath($this->module_path.'tpl');
