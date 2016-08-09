@@ -8,10 +8,8 @@
  */
 class maps extends ModuleObject
 {
-	/**
-	 * @param array $xe_langtype XE 언어 타입 모음(소문자)
-	 */
-	protected $xe_langtype = array(
+	//language setting
+	private $xe_langtype = array(
 			'ko',
 			'en',
 			'zh-tw',
@@ -22,12 +20,10 @@ class maps extends ModuleObject
 			'ru',
 			'vi',
 			'mn',
-			'tr'
+			'tr',
+			'ja'
 		);
-	/**
-	 * @param array $google_langtype Google 언어 타입 모음
-	 */
-	protected $google_langtype = array(
+	private $google_langtype = array(
 			'ko',
 			'en',
 			'zh-Hant',
@@ -38,24 +34,42 @@ class maps extends ModuleObject
 			'ru',
 			'vi',
 			'en', // google does not not support
-			'tr'
+			'tr',
+			'ja'
+		);
+		
+	/**
+	 * @param array $microsoft_langtype Microsoft 언어/지역 타입 https://msdn.microsoft.com/en-us/library/mt712553.aspx
+	 */
+	private $ISO_3166_1_alpha_2 = array(
+			'KR',
+			'US',
+			'TW',
+			'CN',
+			'JP',
+			'ES',
+			'FR',
+			'RU',
+			'VN',
+			'MN',
+			'TR',
+			'JP'
 		);
 
-	/**
-	 * @param array $microsoft_langtype Microsoft 언어 타입 모음 http://msdn.microsoft.com/en-us/library/gg427600.aspx
-	 */
-	protected $microsoft_langtype = array(
-			'ko-KR',
-			'en-US',
-			'zh-TW',
-			'zh-HK',
-			'ja-JP',
-			'es-ES',
-			'fr-FR',
-			'ru-RU',
-			'en-US', // MS does not not support
-			'en-US', // MS does not not support
-			'en-US' // MS does not not support
+	//default location setting (lat, lng)
+	private $country_position = array(
+			'ko' => array(37.57, 126.98),
+			'en' => array(38, -97),
+			'zh-tw' => array(25.03, 121.30),
+			'zh-cn' => array(39.55, 116.23),
+			'jp' => array(36, 138),
+			'es' => array(40, -4),
+			'fr' => array(46, 2),
+			'ru' => array(60, 100),
+			'vi' => array(16, 106),
+			'mn' => array(47.55, 106.53),
+			'tr' => array(39.1667, 35.6667),
+			'ja' => array(36, 138)
 		);
 
 	/**

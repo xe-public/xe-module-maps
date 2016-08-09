@@ -114,16 +114,20 @@ class mapsAdminView extends maps
 		elseif($maps_config->maps_api_type == 'microsoft')
 		{
 			// 언어 값 설정
-			$langtype = str_replace($this->xe_langtype, $this->microsoft_langtype, strtolower(Context::getLangType()));
+			$langtype = str_replace($this->xe_langtype, $this->ISO_3166_1_alpha_2, strtolower(Context::getLangType()));
 
-			$map_comp_header_script = '<script type="text/javascript" src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&amp;mkt=ngt,'.$langtype.'"></script>';
+			// 세계지도 표시 가능한 경우는 외국이 표시될 수 있음
+			$maps_lat = $this->country_position[Context::getLangType()][0];
+			$maps_lng = $this->country_position[Context::getLangType()][1];
+
+			$map_comp_header_script = '<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?UR='.$langtype.'"></script>';
 			$map_comp_header_script .= '<script>'.
 				sprintf(
 					'var defaultlat="%s";'.
 					'var defaultlng="%s";'
 					,$maps_lat,$maps_lng).
 				'</script>';
-			Context::set('maps_langcode', 'ko');
+			Context::set('maps_langcode', $langtype);
 		}
 		else
 		{
@@ -131,18 +135,10 @@ class mapsAdminView extends maps
 			$langtype = str_replace($this->xe_langtype, $this->google_langtype, strtolower(Context::getLangType()));
 
 			// 세계지도 표시 가능한 경우는 외국이 표시될 수 있음
-			if(Context::getLangType() == 'zh-CN' || Context::getLangType() == 'zh-TW') // Beijing
-			{
-				$maps_lat = 39.55;
-				$maps_lng = 116.23;
-			}
-			elseif(Context::getLangType() != 'ko') // United States
-			{
-				$maps_lat = 38;
-				$maps_lng = -97;
-			}
+			$maps_lat = $this->country_position[Context::getLangType()][0];
+			$maps_lng = $this->country_position[Context::getLangType()][1];
 
-			$map_comp_header_script = '<script src="https://maps-api-ssl.google.com/maps/api/js?sensor=false&amp;language='.$langtype.'"></script>';
+			$map_comp_header_script = '<script src="https://maps.googleapis.com/maps/api/js?key=' . $maps_config->map_api_key . '&amp;language='.$langtype.'"></script>';
 			$map_comp_header_script .= '<script>'.
 				sprintf(
 					'var defaultlat="%s";'.

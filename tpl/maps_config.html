@@ -21,8 +21,8 @@
 		<label class="x_control-label" for="map_api_type">{$lang->maps_module_map_api_key_type}</label>
 		<div class="x_controls">
 			<select name="map_api_type" id="map_api_type">
-				<option value="" selected="selected"|cond="$map_api_type!=='daum'">{$lang->maps_module_key_type_auto}</option>
-				<option value="daum" selected="selected"|cond="$map_api_type==='daum'">{$lang->maps_module_key_type_daum}</option>
+				<option value="" selected="selected"|cond="!$map_api_type">{$lang->maps_module_key_type_auto}</option>
+				<option loop="$lang->maps_module_key=>$key,$val" value="{$key}" selected="selected"|cond="$map_api_type===$key">{$val}</option>
 			</select>
 			<span class="x_help-inline">{$lang->maps_module_key_type_descri}</span>
 		</div>
